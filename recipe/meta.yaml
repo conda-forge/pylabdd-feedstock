@@ -9,15 +9,14 @@ source:
   sha256: 6e004a4a18d3e086ce409d75343d0d64d2312901990efa2a1c4987b57597a7a4
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
-    - {{ compiler('fortran') }}  # [not win]
-    - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler("c") }}
+    - {{ compiler("fortran") }}
   host:
     - python
     - pip
