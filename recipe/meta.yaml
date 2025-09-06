@@ -20,6 +20,7 @@ requirements:
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
+    - libgfortran
   host:
     - python
     - pip
