@@ -10,7 +10,9 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: |
+    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation  # [not osx_arm64]
+    $BUILD_PREFIX/bin/python -m pip install . -vv --no-deps --no-build-isolation  # [osx_arm64]
 
 requirements:
   build:
