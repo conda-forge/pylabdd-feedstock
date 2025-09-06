@@ -20,11 +20,11 @@ requirements:
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - libgfortran
+    - libgfortran5
   host:
     - python
     - pip
-    - libgfortran
+    - libgfortran5
     - setuptools
     - fmodpy
   run:
