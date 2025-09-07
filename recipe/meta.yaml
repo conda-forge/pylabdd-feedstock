@@ -20,13 +20,11 @@ build:
     echo "***FFLAGS=$FFLAGS"
     echo "***LDFLAGS=$LDFLAGS"
     echo "***LIBRARY_PATH=$LIBRARY_PATH"
+    echo "BUILD_PREFIX libs"
     ls -l {{ BUILD_PREFIX }}/lib | grep gfortran || true
+    echo "PREFIX libs"
     ls -l {{ PREFIX }}/lib | grep gfortran || true
-    if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
-        {{ BUILD_PREFIX }}/bin/python -m pip install . -vv --no-deps --no-build-isolation
-    else
-        {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-    fi
+    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
