@@ -5,18 +5,18 @@ package:
   version: {{ version }}
 
 source:
-  #url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
-  #sha256: 6e004a4a18d3e086ce409d75343d0d64d2312901990efa2a1c4987b57597a7a4
-  git_url: https://github.com/AHartmaier/pyLabDD.git  # temporary change for test purposes
-  git_rev: main
+  url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
+  sha256: 6e004a4a18d3e086ce409d75343d0d64d2312901990efa2a1c4987b57597a7a4
+  #git_url: https://github.com/AHartmaier/pyLabDD.git  # temporary change for test purposes
+  #git_rev: main
   
 build:
   number: 0
   skip: true  # [py>=311]
   skip: true  # [win]
   script: |
-    export LIBRARY_PATH="{{ BUILD_PREFIX }}/lib:${LIBRARY_PATH}"
-    export DYLD_LIBRARY_PATH="{{ BUILD_PREFIX }}/lib:${DYLD_LIBRARY_PATH}"
+    export LIBRARY_PATH="{{ BUILD_PREFIX }}/lib:{{ PREFIX }}/lib:${LDFLAGS}:${LIBRARY_PATH}"
+    export DYLD_LIBRARY_PATH="{{ BUILD_PREFIX }}/lib:{{ PREFIX }}/lib:${LDFLAGS}:${DYLD_LIBRARY_PATH}"
     echo "***FFLAGS=$FFLAGS"
     echo "***LDFLAGS=$LDFLAGS"
     echo "***LIBRARY_PATH=$LIBRARY_PATH"
