@@ -5,9 +5,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
-  sha256: 6e004a4a18d3e086ce409d75343d0d64d2312901990efa2a1c4987b57597a7a4
-
+  #url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
+  #sha256: 6e004a4a18d3e086ce409d75343d0d64d2312901990efa2a1c4987b57597a7a4
+  url: https://github.com/AHartmaier/pyLabDD.git
+  
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -20,11 +21,9 @@ requirements:
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - libgfortran5
   host:
     - python
     - pip
-    - libgfortran5
     - setuptools
     - fmodpy
   run:
