@@ -15,13 +15,13 @@ build:
   skip: true  # [py>=311]
   skip: true  # [win]
   script: |
-    export LIBRARY_PATH="${PREFIX}/lib:${LIBRARY_PATH}"
-    export DYLD_LIBRARY_PATH="${PREFIX}/lib:${DYLD_LIBRARY_PATH}"
+    export LIBRARY_PATH="{{ BUILD_PREFIX }}/lib:${LIBRARY_PATH}"
+    export DYLD_LIBRARY_PATH="{{ BUILD_PREFIX }}/lib:${DYLD_LIBRARY_PATH}"
     which gfortran; gfortran --version || true
     echo "***FFLAGS=$FFLAGS"
     echo "***LDFLAGS=$LDFLAGS"
     echo "***LIBRARY_PATH=$LIBRARY_PATH"
-    ls -l ${PREFIX}/lib | grep gfortran || true
+    ls -l {{ BUILD_PREFIX }}/lib | grep gfortran || true
     {{ BUILD_PREFIX }}/bin/python -m pip install . -vv --no-deps --no-build-isolation   # [build_platform != target_platform]
     {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation   # [build_platform == target_platform]
 
