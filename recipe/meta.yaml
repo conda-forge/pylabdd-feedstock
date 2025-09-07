@@ -14,7 +14,13 @@ build:
   number: 0
   skip: true  # [py>=311]
   skip: true  # [win]
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: |
+    which gfortran; gfortran --version || true
+    echo "FFLAGS=$FFLAGS"
+    echo "LDFLAGS=$LDFLAGS"
+    ls -l ${PREFIX}/lib | grep gfortran || true
+    {{ BUILD_PREFIX }}/bin/python -m pip install . -vv --no-deps --no-build-isolation   # [build_platform != target_platform]
+    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation   # [build_platform == target_platform]
 
 requirements:
   build:
@@ -28,6 +34,7 @@ requirements:
     - python
     - pip
     - setuptools
+    - libgfortran5  
     - fmodpy
   run:
     - python
