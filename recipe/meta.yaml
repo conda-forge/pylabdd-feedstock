@@ -22,13 +22,17 @@ build:
     echo "***LDFLAGS=$LDFLAGS"
     echo "***LIBRARY_PATH=$LIBRARY_PATH"
     ls -l {{ BUILD_PREFIX }}/lib | grep gfortran || true
-    {{ BUILD_PREFIX }}/bin/python -m pip install . -vv --no-deps --no-build-isolation   # [build_platform != target_platform]
-    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation   # [build_platform == target_platform]
+    if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
+        {{ BUILD_PREFIX }}/bin/python -m pip install . -vv --no-deps --no-build-isolation
+    else
+        {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    fi
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - libgfortran5                           # [build_platform != target_platform]
     - {{ compiler('fortran') }}  # [not win]
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('c') }}
