@@ -1,14 +1,12 @@
-{% set version = "1.2.3" %}
+{% set version = "1.2.4" %}
 
 package:
   name: pylabdd
   version: {{ version }}
 
 source:
-  #url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
-  #sha256: 6e004a4a18d3e086ce409d75343d0d64d2312901990efa2a1c4987b57597a7a4
-  git_url: https://github.com/AHartmaier/pyLabDD.git  # temporary change for test purposes
-  git_rev: main
+  url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
+  sha256: 15cab637fd6ec6c8f5aa0f54b32eb84dc1143357096e045448b1bcbe136c5953
   
 build:
   number: 0
