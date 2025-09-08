@@ -12,19 +12,7 @@ source:
   
 build:
   number: 0
-  skip: true  # [py>=311]
-  skip: true  # [win]
-  script: |
-    export LIBRARY_PATH="{{ PREFIX }}/lib:${LIBRARY_PATH}"
-    export DYLD_LIBRARY_PATH="{{ PREFIX }}/lib:${DYLD_LIBRARY_PATH}"
-    echo "***FFLAGS=$FFLAGS"
-    echo "***LDFLAGS=$LDFLAGS"
-    echo "***LIBRARY_PATH=$LIBRARY_PATH"
-    echo "BUILD_PREFIX libs"
-    ls -l {{ BUILD_PREFIX }}/lib | grep gfortran || true
-    echo "PREFIX libs"
-    ls -l {{ PREFIX }}/lib | grep gfortran || true
-    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
