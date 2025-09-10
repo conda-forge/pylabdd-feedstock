@@ -14,6 +14,7 @@ build:
   number: 0
   skip: true  # [py>=311]
   skip: true  # [win]
+  skip: true  # [linux]
   script: |
     export LIBRARY_PATH="{{ PREFIX }}/lib:${LIBRARY_PATH}"
     export DYLD_LIBRARY_PATH="{{ PREFIX }}/lib:${DYLD_LIBRARY_PATH}"
