@@ -25,8 +25,11 @@ build:
     echo "PREFIX libs"
     ls -l {{ PREFIX }}/lib | grep gfortran || true
     {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    echo "*** Files in build/lib/pylabdd/PK_force/"
+    ls -l build/lib/pylabdd/PK_force/
+    echo "*** Files in site-packages"
     ls -l {{ SP_DIR }}/pylabdd/PK_force/*.so
-    file {{SP_DIR }}/pylabdd/PK_force/PK_force.arm64.so
+    file {{ SP_DIR }}/pylabdd/PK_force/PK_force.arm64.so
 
 requirements:
   build:
