@@ -30,7 +30,7 @@ build:
     ls -l build/lib/pylabdd/PK_force/
     echo "*** Files in site-packages"
     ls -l {{ SP_DIR }}/pylabdd/PK_force/*.so
-    file {{ SP_DIR }}/pylabdd/PK_force/PK_force.arm64.so
+    file {{ SP_DIR }}/pylabdd/PK_force/PK_force.2.arm64.so
 
 requirements:
   build:
