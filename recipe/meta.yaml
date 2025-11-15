@@ -19,7 +19,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - libgfortran5                           # [build_platform != target_platform]
     - {{ compiler('fortran') }}  # [not win]
-    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('flang') }}  # [win]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
   host:
