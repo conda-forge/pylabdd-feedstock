@@ -9,7 +9,7 @@ source:
   sha256: acae8a5a9b1c2dc86b4642a7375a54f2ec67225cd4bf52a8a782c7f44d82d801
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -18,10 +18,9 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - libgfortran5                           # [build_platform != target_platform]
-    - {{ compiler('fortran') }}  # [not win]
-    - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler("c") }}
+    - {{ compiler("fortran") }}
   host:
     - python
     - pip
