@@ -43,7 +43,7 @@ test:
   imports:
     - pylabdd
   commands:
-    - pip check
+    - pip check 
 
 about:
   home: https://github.com/AHartmaier/pyLabDD
