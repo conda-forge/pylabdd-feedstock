@@ -34,6 +34,7 @@ requirements:
     - numpy
     - matplotlib-base
     - fmodpy
+    - h5py
 
 test:
   requires:
