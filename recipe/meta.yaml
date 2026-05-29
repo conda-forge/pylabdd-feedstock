@@ -35,6 +35,7 @@ requirements:
     - matplotlib-base
     - fmodpy
     - h5py
+    - libgcc  # [osx]
 
 test:
   requires:
