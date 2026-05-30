@@ -1,4 +1,4 @@
-{% set version = "1.2.5" %}
+{% set version = "1.2.13" %}
 
 package:
   name: pylabdd
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
-  sha256: acae8a5a9b1c2dc86b4642a7375a54f2ec67225cd4bf52a8a782c7f44d82d801
+  sha256: 47132f97f4fad4d309a8a12c436731b76b223d6f613f906b333562e2b99a7bb2
 
 build:
   number: 0
