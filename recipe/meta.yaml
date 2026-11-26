@@ -1,4 +1,4 @@
-{% set version = "1.3.3" %}
+{% set version = "1.3.4" %}
 
 package:
   name: pylabdd
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/p/pylabdd/pylabdd-{{ version }}.tar.gz
-  sha256: f6ea9e6d3b6a9e22783688014b5bccee2830fa1cb34df90eacc0519a76ac5275
+  sha256: 914e86c602ecf4e474fc31ba120279cfb7b233db63fe05c7dacedd5efe08c37a
 
 build:
   number: 0
